@@ -12,19 +12,11 @@ This project is a versatile Morse code trainer, communicator, and CW keyer desig
 - Intuitive menu navigation
 - EEPROM data handling for storing user settings
 
-## Usage
-
-To use this project, follow these steps:
-1. Clone or download the repository.
-2. Choose the branch corresponding to your preferred development environment:
-   - For Arduino IDE, switch to the `Arduino IDE` branch.
-   - For PlatformIO, use the `master` branch.
-3. Open the project in your preferred development environment.
-4. Upload the code to your M5StickC Plus device.
-5. Navigate through the menu using the buttons on the device and select the desired mode.
-
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-## Thanks
+## Special Thanks
 - [marsPRE](https://github.com/marsPRE)
+- [QCQ Planning](https://www.qcq.co.jp/)
+- [Ministry of Internal Affairs and Communications JAPAN](https://www.soumu.go.jp/)
+- [Japan Amateur Radio League](https://www.jarl.com/)
