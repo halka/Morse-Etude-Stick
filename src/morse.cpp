@@ -3,9 +3,9 @@
 int sound_level = 192;
 int mode = 0; // initialize the mode
 
-String mode_names[4] = {"Exam", "Q Code", "Morse", "Callsign"};
-int wpm = 15; // wpm
-int freq = 750; // frequency
+const String mode_names[5] = {"Exam", "Q Code", "Morse", "Callsign", "CQ Training"};
+int wpm = 10;    // wpm
+int freq = 1500; // frequency
 int dit_length = 1200 / wpm;
 int letter_pause_length = 4 * dit_length;
 int word_pause_length = 8 * dit_length;
@@ -15,11 +15,11 @@ String word_cw = "";
 String callsign = "JM8UTW";
 
 // Morse code array
-String morsecode[49][2] = {
+const String morsecode[49][2] = {
     {" ", " "}, {".----.", "'"}, {"-.--.-", ")"}, {"--..--", ","}, {"-....-", "-"}, {".-.-.-", "."}, {"-..-.", "/"}, {"-----", "0"}, {".----", "1"}, {"..---", "2"}, {"...--", "3"}, {"....-", "4"}, {".....", "5"}, {"-....", "6"}, {"--...", "7"}, {"---..", "8"}, {"----.", "9"}, {"---...", ":"}, {"-.-.-.", ";"}, {"..--..", "?"}, {".-", "A"}, {"-...", "B"}, {"-.-.", "C"}, {"-..", "D"}, {".", "E"}, {"..-.", "F"}, {"--.", "G"}, {"....", "H"}, {"..", "I"}, {".---", "J"}, {"-.-", "K"}, {".-..", "L"}, {"--", "M"}, {"-.", "N"}, {"---", "O"}, {".--.", "P"}, {"--.-", "Q"}, {".-.", "R"}, {"...", "S"}, {"-", "T"}, {"..-", "U"}, {"...-", "V"}, {".--", "W"}, {"-..-", "X"}, {"-.--", "Y"}, {"--..", "Z"}, {"..--.-", "_"}, {"........", "backspace"}, {"-.--.", "<kn>"}};
 
-    // Q Code array
-String qcode[49][2] = {
+// Q Code array
+const String qcode[49][2] = {
     {"QRA", "What is the name of your station?"},
     {"QRG", "Will you tell me my exact frequency?"},
     {"QRH", "Does my frequency vary?"},
@@ -71,7 +71,7 @@ String qcode[49][2] = {
     {"QUD", "Have you received the urgency signal sent by ...?"}};
 
 // Exam?
-String exam[12] = {"DENPA3", "CHIYODA", "MUSEN5", "QHT", "QSO", "QSY", "QRZ", "CQ CQ CQ", "DE", "AS", "AR", "VA"};
+const String exam[12] = {"DENPA3", "CHIYODA", "MUSEN5", "QHT", "QSO", "QSY", "QRZ", "CQ CQ CQ", "DE", "AS", "AR", "VA"};
 
 // Function to insigt the morse code
 String morseCode(String input)
@@ -187,11 +187,11 @@ void loop()
   M5.Lcd.print(mode_names[mode]);
   if (M5.BtnB.wasPressed())
   {
-    mode = (mode + 1) % 4;
+    mode = (mode + 1) % 5;
   }
   if (mode == 0)
   {
-    // QCQ mode
+    // Exam mode
     if (M5.BtnA.wasPressed())
     {
       int randomIndex = random(0, 12);
@@ -216,6 +216,7 @@ void loop()
       M5.Lcd.setCursor(5, 40);
       M5.Lcd.println(morseCode(word_cw));
       M5.Lcd.setFont(&fonts::Font2);
+      M5.Lcd.setCursor(5, 55);
       M5.Lcd.println(qcode[randomIndex][1]);
       playMorseCode(word_cw);
     }
@@ -228,13 +229,15 @@ void loop()
       int randomIndex = random(0, 49);
       word_cw = morsecode[randomIndex][1];
       M5.Lcd.setFont(&fonts::Font4);
+      M5.Lcd.setTextSize(2);
       M5.Lcd.setCursor(5, 20);
       M5.Lcd.println(morsecode[randomIndex][0]);
+      M5.Lcd.setTextSize(1);
       M5.Lcd.println(word_cw);
       playMorseCode(word_cw);
     }
   }
-  else if(mode == 3)
+  else if (mode == 3)
   {
     // Callsign mode
     if (M5.BtnA.wasPressed())
@@ -244,6 +247,19 @@ void loop()
       M5.Lcd.setCursor(5, 20);
       M5.Lcd.println(word_cw);
       M5.Lcd.println(morseCode(word_cw));
+      playMorseCode(word_cw);
+    }
+  }
+  else if (mode == 4)
+  {
+    // CQ mode
+    if (M5.BtnA.wasPressed())
+    {
+      word_cw = sprintf("%s %s %s %s K", "CQ CQ CQ DE", callsign, callsign, callsign);
+      M5.Lcd.setFont(&fonts::Font2);
+      M5.Lcd.setCursor(5, 20);
+      M5.Lcd.printf("CQ CQ CQ\nDE\n%s\n%s\n%s\nK", callsign, callsign, callsign);
+      // M5.Lcd.println(morseCode(word_cw));
       playMorseCode(word_cw);
     }
   }
