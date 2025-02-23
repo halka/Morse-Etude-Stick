@@ -4,7 +4,7 @@ int sound_level = 128;
 int mode = 0; // initialize the mode
 
 const String mode_names[5] = {"Exam", "Q Code", "Morse", "Callsign", "CQ Training"};
-int wpm = 10;    // wpm
+int wpm = 15;    // wpm
 int freq = 4000; // frequency
 int waitingMs = 1000;
 int dit_length = 1200 / wpm;
