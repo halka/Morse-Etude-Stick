@@ -255,7 +255,7 @@ void loop()
     // CQ mode
     if (M5.BtnA.wasPressed())
     {
-      word_cw = sprintf("%s %s %s %s K", "CQ CQ CQ DE", callsign, callsign, callsign);
+      word_cw = String("CQ CQ CQ DE ") + callsign + " " + callsign + " " + callsign + " K";
       M5.Lcd.setFont(&fonts::Font2);
       M5.Lcd.setCursor(5, 20);
       M5.Lcd.printf("CQ CQ CQ\nDE\n%s\n%s\n%s\nK", callsign, callsign, callsign);
