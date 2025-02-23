@@ -1,11 +1,11 @@
 #include "M5Unified.h"
 
-int sound_level = 192;
+int sound_level = 128;
 int mode = 0; // initialize the mode
 
 const String mode_names[5] = {"Exam", "Q Code", "Morse", "Callsign", "CQ Training"};
 int wpm = 10;    // wpm
-int freq = 1500; // frequency
+int freq = 3000; // frequency
 int dit_length = 1200 / wpm;
 int letter_pause_length = 4 * dit_length;
 int word_pause_length = 8 * dit_length;
@@ -257,11 +257,11 @@ void loop()
     {
       word_cw = String("CQ CQ CQ DE ") + callsign + " " + callsign + " " + callsign + " K";
       M5.Lcd.setFont(&fonts::Font2);
-      M5.Lcd.setCursor(5, 20);
-      M5.Lcd.printf("CQ CQ CQ\nDE\n%s\n%s\n%s\nK", callsign, callsign, callsign);
+      M5.Lcd.setCursor(0, 20);
+      M5.Lcd.printf(" CQ CQ CQ\n DE\n %s\n %s\n %s\n K", callsign, callsign, callsign);
       // M5.Lcd.println(morseCode(word_cw));
       playMorseCode(word_cw);
     }
   }
-  delay(300);
+  delay(500);
 };
