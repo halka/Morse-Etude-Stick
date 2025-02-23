@@ -5,7 +5,8 @@ int mode = 0; // initialize the mode
 
 const String mode_names[5] = {"Exam", "Q Code", "Morse", "Callsign", "CQ Training"};
 int wpm = 10;    // wpm
-int freq = 3000; // frequency
+int freq = 4000; // frequency
+int waitingMs = 1000;
 int dit_length = 1200 / wpm;
 int letter_pause_length = 4 * dit_length;
 int word_pause_length = 8 * dit_length;
@@ -201,6 +202,7 @@ void loop()
       M5.Lcd.println(word_cw);
       M5.Lcd.println(morseCode(word_cw));
       playMorseCode(word_cw);
+      delay(waitingMs);
     }
   }
   else if (mode == 1)
@@ -216,9 +218,10 @@ void loop()
       M5.Lcd.setCursor(5, 40);
       M5.Lcd.println(morseCode(word_cw));
       M5.Lcd.setFont(&fonts::Font2);
-      M5.Lcd.setCursor(5, 55);
+      M5.Lcd.setCursor(5, 60);
       M5.Lcd.println(qcode[randomIndex][1]);
       playMorseCode(word_cw);
+      delay(waitingMs);
     }
   }
   else if (mode == 2)
@@ -235,6 +238,7 @@ void loop()
       M5.Lcd.setTextSize(1);
       M5.Lcd.println(word_cw);
       playMorseCode(word_cw);
+      delay(waitingMs);
     }
   }
   else if (mode == 3)
@@ -248,6 +252,7 @@ void loop()
       M5.Lcd.println(word_cw);
       M5.Lcd.println(morseCode(word_cw));
       playMorseCode(word_cw);
+      delay(waitingMs);
     }
   }
   else if (mode == 4)
@@ -261,7 +266,8 @@ void loop()
       M5.Lcd.printf(" CQ CQ CQ\n DE\n %s\n %s\n %s\n K", callsign, callsign, callsign);
       // M5.Lcd.println(morseCode(word_cw));
       playMorseCode(word_cw);
+      delay(waitingMs);
     }
   }
-  delay(500);
+  delay(300);
 };
