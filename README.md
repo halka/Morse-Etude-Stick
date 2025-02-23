@@ -1,15 +1,11 @@
 # Morse Code Trainer
-Forked from [marsPRE/WristMorse: Morse Code Keyer, Bluetooth morse Keyboard, Touch paddle, morse trainer and wireless morse transmitter](https://github.com/marsPRE/WristMorse)
-
-## Introduction
-
-This project is a versatile Morse code trainer, communicator, and CW keyer designed for the M5StickC Plus device. The Morserino project inspires it.
+This project hae forked from [marsPRE/WristMorse: Morse Code Keyer, Bluetooth morse Keyboard, Touch paddle, morse trainer and wireless morse transmitter](https://github.com/marsPRE/
 
 ## Objective
-- Acquire a technique telegraph communication
+- Acquire a technique of telegraph communication
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+This project is licensed under the MIT License. For more details, see the LICENSE file.
 
 ## Special Thanks
 - [marsPRE](https://github.com/marsPRE)
