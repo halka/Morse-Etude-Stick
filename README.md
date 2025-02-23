@@ -1,16 +1,12 @@
-# Morse Code Trainer, Communicator, and CW Keyer for esp32 based M5StickC Plus
+# Morse Code Trainer
 Forked from [marsPRE/WristMorse: Morse Code Keyer, Bluetooth morse Keyboard, Touch paddle, morse trainer and wireless morse transmitter](https://github.com/marsPRE/WristMorse)
 
 ## Introduction
 
 This project is a versatile Morse code trainer, communicator, and CW keyer designed for the M5StickC Plus device. The Morserino project inspires it.
 
-## Features
-- CW keyer mode for operating
-- Koch method trainer for learning Morse code progressively
-- Echo trainer for practising Morse code by listening and repeating characters
-- Intuitive menu navigation
-- EEPROM data handling for storing user settings
+## Objective
+- Acquire a technique telegraph communication
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
