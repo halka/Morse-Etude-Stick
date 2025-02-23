@@ -3,7 +3,7 @@ This project has forked from [marsPRE/WristMorse: Morse Code Keyer, Bluetooth mo
 
 ## Objective
 - Acquire a technique of telegraph communication
-- Don't think, Feeling CW!
+- Don't think, Feel CW!
 
 ## License
 This project is licensed under the MIT License.
